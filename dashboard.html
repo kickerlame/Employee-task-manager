@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Employee Task Manager prototype for IMS566 individual assignment. Includes login, dashboard, pending and completed tasks with data visualisation.">
+  <title>Dashboard - Employee Task Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body
+  class="min-h-screen flex flex-col bg-cover bg-center bg-fixed overflow-x-hidden"
+  style="background-image: url('nightreign-banner-and-wallpaper-v0-w4732smaodge1.png');"
+>
+   <!-- Top brand bar + navigation -->
+  <nav class="bg-slate-950/90 text-white shadow">
+    <!-- Brand bar -->
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between border-b border-slate-800/80">
+      <div class="flex items-center space-x-3">
+        <!-- Logo circle with image -->
+        <div class="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center">
+          <img
+            src="fe9e9fb39106c162aa27251d737eedd2.ico"
+            alt="Company logo"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <!-- Text next to logo -->
+        <div>
+          <p class="text-sm font-semibold leading-tight">NAIMUS Corporation</p>
+          <p class="text-xs text-slate-200">Employee Task Management Portal</p>
+        </div>
+      </div>
+
+      <!-- Logged in user info -->
+      <p class="hidden sm:block text-xs text-slate-200">
+        Logged in as <span class="font-semibold">Admin</span>
+      </p>
+    </div>
+
+    <!-- Main navigation links -->
+    <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between">
+      <div class="flex flex-wrap items-center gap-4 text-sm">
+        <a href="home.html" class="hover:text-violet-300">Home</a>
+        <a href="dashboard.html" class="text-violet-400 font-semibold border-b-2 border-violet-400 pb-1">Dashboard</a>
+        <a href="pending.html" class="hover:text-violet-300">Pending Tasks</a>
+        <a href="completed.html" class="hover:text-violet-300">Completed Tasks</a>
+      </div>
+
+      <a
+        href="login.html"
+        class="mt-2 sm:mt-0 text-xs bg-violet-500 text-slate-900 px-3 py-1 rounded font-semibold hover:bg-violet-400"
+      >
+        Logout
+      </a>
+    </div>
+  </nav>
+
+  <main class="max-w-5xl mx-auto mt-8 px-4 flex-1">
+    <!-- Dashboard header -->
+    <header class="mb-6">
+      <h2 class="text-3xl font-bold text-slate-100">Dashboard</h2>
+      <p class="text-gray-300">Overview of employee tasks and productivity.</p>
+    </header>
+
+    <!-- Summary cards -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white p-6 shadow rounded-xl text-center border-4 border-sky-600">
+        <h3 class="text-lg font-semibold text-slate-600">Total Employee Tasks</h3>
+        <p class="text-4xl font-bold text-slate-900">10</p>
+        <p class="text-sm text-gray-500 mt-1">As of Dec 4, 2025</p>
+      </div>
+
+      <div class="bg-white p-6 shadow rounded-xl text-center border-4 border-sky-600">
+        <h3 class="text-lg font-semibold text-gray-600">Completed</h3>
+        <p class="text-4xl font-bold text-emerald-600">5</p>
+        <p class="text-sm text-gray-500 mt-1">Tasks finished</p>
+      </div>
+
+      <div class="bg-white p-6 shadow rounded-xl text-center border-4 border-sky-600">
+        <h3 class="text-lg font-semibold text-gray-600">Pending</h3>
+        <p class="text-4xl font-bold text-amber-500">5</p>
+        <p class="text-sm text-gray-500 mt-1">Tasks still open</p>
+      </div>
+    </section>
+
+    <!-- Quick employee task list -->
+    <section class="bg-white p-6 rounded-xl shadow mb-8 border-4 border-sky-600">
+      <h3 class="text-xl font-semibold text-slate-800 mb-3">Quick Employee Task List</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h4 class="font-semibold mb-2">Pending</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>Complete Employee Onboarding — Due 2025-02-02</li>
+            <li>Organize Team Meeting — Due 2025-02-04</li>
+            <li>Prepare Payroll Reports — Due 2025-02-05</li>
+            <li>Update Employee Records — Due 2025-02-06</li>
+            <li>Conduct Performance Reviews — Due 2025-02-07</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">Completed</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>Submit Project Proposal — Completed 2025-01-28</li>
+            <li>Process Expense Reimbursements — Completed 2025-01-30</li>
+            <li>Clean Office Space — Completed 2025-01-25</li>
+            <li>Order Office Supplies — Completed 2025-01-26</li>
+            <li>Archive Old Files — Completed 2025-01-27</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Task distribution chart -->
+    <section class="bg-white p-6 rounded-xl shadow border-4 border-sky-600">
+      <h3 class="text-2xl font-bold text-slate-800 mb-4">Employee Tasks Overview</h3>
+      <canvas id="taskChart" height="120"></canvas>
+      <p class="text-sm text-gray-500 mt-3">
+        Chart shows employee task distribution — values match Pending &amp; Completed pages.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    // Initialize the task distribution doughnut chart on the dashboard
+    document.addEventListener('DOMContentLoaded', function () {
+      var ctx = document.getElementById('taskChart').getContext('2d');
+      var chart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Completed', 'Pending'],
+          datasets: [{
+            data: [5, 5],
+            backgroundColor: ['#7C3AED', '#22D3EE'] // violet-600, cyan-400
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    });
+  </script>
+
+  <footer class="bg-violet-500 text-white text-center py-4 mt-8">
+    <p class="text-sm font-semibold">
+      IMS566 – Web Tech | Employee Task Manager
+    </p>
+    <p class="text-xs">
+      Developed by NAIMUS Corporation, 2025.
+    </p>
+  </footer>
+</body>
+</html>

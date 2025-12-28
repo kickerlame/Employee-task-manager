@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Employee Task Manager prototype for IMS566 individual assignment. Includes login, dashboard, pending and completed tasks with data visualisation.">
+  <title>Completed Tasks - Employee Task Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body
+  class="min-h-screen flex flex-col bg-cover bg-center bg-fixed overflow-x-hidden"
+  style="background-image: url('nightreign-banner-and-wallpaper-v0-w4732smaodge1.png');"
+>
+    <!-- Top brand bar + navigation -->
+  <nav class="bg-slate-950/90 text-white shadow">
+    <!-- Brand bar -->
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between border-b border-slate-800/80">
+      <div class="flex items-center space-x-3">
+        <!-- Logo circle with image -->
+        <div class="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center">
+          <img
+            src="fe9e9fb39106c162aa27251d737eedd2.ico"
+            alt="Company logo"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <!-- Text next to logo -->
+        <div>
+          <p class="text-sm font-semibold leading-tight">NAIMUS Corporation</p>
+          <p class="text-xs text-slate-200">Employee Task Management Portal</p>
+        </div>
+      </div>
+
+      <!-- Logged in user info -->
+      <p class="hidden sm:block text-xs text-slate-200">
+        Logged in as <span class="font-semibold">Admin</span>
+      </p>
+    </div>
+
+
+    <!-- Main navigation links -->
+    <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between">
+      <div class="flex flex-wrap items-center gap-4 text-sm">
+        <a href="home.html" class="hover:text-violet-300">Home</a>
+        <a href="dashboard.html" class="hover:text-violet-300">Dashboard</a>
+        <a href="pending.html" class="hover:text-violet-300">Pending Tasks</a>
+        <a href="completed.html" class="text-violet-400 font-semibold border-b-2 border-violet-400 pb-1">Completed Tasks</a>
+      </div>
+
+      <a
+        href="login.html"
+        class="mt-2 sm:mt-0 text-xs bg-violet-500 text-slate-900 px-3 py-1 rounded font-semibold hover:bg-violet-400"
+      >
+        Logout
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main content area -->
+  <main class="max-w-5xl mx-auto mt-8 px-4 flex-1">
+    <section class="bg-white p-6 rounded-xl shadow border-4 border-sky-600">
+      <h2 class="text-2xl font-bold text-slate-800 mb-4">Completed Employee Tasks</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-blue-100">
+              <th class="p-2">Task</th>
+              <th class="p-2">Completed On</th>
+              <th class="p-2">Priority</th>
+              <th class="p-2">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t">
+              <td class="p-2">Submit Project Proposal</td>
+              <td class="p-2">2025-01-28</td>
+              <td class="p-2">High</td>
+              <td class="p-2">Completed</td>
+            </tr>
+            <tr class="border-t bg-white">
+              <td class="p-2">Process Expense Reimbursements</td>
+              <td class="p-2">2025-01-30</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2">Completed</td>
+            </tr>
+            <tr class="border-t">
+              <td class="p-2">Clean Office Space</td>
+              <td class="p-2">2025-01-25</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2">Completed</td>
+            </tr>
+            <tr class="border-t">
+              <td class="p-2">Order Office Supplies</td>
+              <td class="p-2">2025-01-26</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2">Completed</td>
+            </tr>
+            <tr class="border-t">
+              <td class="p-2">Archive Old Files</td>
+              <td class="p-2">2025-01-27</td>
+              <td class="p-2">High</td>
+              <td class="p-2">Completed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-violet-500 text-white text-center py-4 mt-8">
+    <p class="text-sm font-semibold">
+      IMS566 – Web Tech | Employee Task Manager
+    </p>
+    <p class="text-xs">
+      Developed by NAIMUS Corporation, 2025.
+    </p>
+  </footer>
+</body>
+</html>

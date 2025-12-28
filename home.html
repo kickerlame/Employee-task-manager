@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Employee Task Manager prototype for IMS566 individual assignment. About page and instructions for using the portal.">
+  <title>Home - Employee Task Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body
+  class="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
+  style="background-image: url('nightreign-banner-and-wallpaper-v0-w4732smaodge1.png');"
+>
+  <!-- Top brand bar + navigation -->
+  <nav class="bg-slate-950/90 text-white shadow">
+    <!-- Brand bar -->
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between border-b border-slate-800/80">
+      <div class="flex items-center space-x-3">
+        <!-- Logo circle with image -->
+        <div class="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center">
+          <img
+            src="fe9e9fb39106c162aa27251d737eedd2.ico"
+            alt="Company logo"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <!-- Text next to logo -->
+        <div>
+          <p class="text-sm font-semibold leading-tight">NAIMUS Corporation</p>
+          <p class="text-xs text-slate-200">Employee Task Management Portal</p>
+        </div>
+      </div>
+
+      <!-- Logged in user info -->
+      <p class="hidden sm:block text-xs text-slate-200">
+        Logged in as <span class="font-semibold">Admin</span>
+      </p>
+    </div>
+
+    <!-- Main navigation links -->
+    <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between">
+      <div class="flex flex-wrap items-center gap-4 text-sm">
+        <a href="home.html" class="text-violet-400 font-semibold border-b-2 border-violet-400 pb-1">Home</a>
+        <a href="dashboard.html" class="hover:text-violet-300">Dashboard</a>
+        <a href="pending.html" class="hover:text-violet-300">Pending Tasks</a>
+        <a href="completed.html" class="hover:text-violet-300">Completed Tasks</a>
+      </div>
+
+      <a
+        href="login.html"
+        class="mt-2 sm:mt-0 text-xs bg-violet-500 text-slate-900 px-3 py-1 rounded font-semibold hover:bg-violet-400"
+      >
+        Logout
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main content area -->
+  <main class="max-w-5xl mx-auto mt-8 px-4 flex-1">
+    <!-- About header -->
+    <header class="mb-6">
+      <h2 class="text-3xl font-bold text-slate-100 drop-shadow">About This Portal</h2>
+      <p class="text-gray-200 drop-shadow">
+        The Employee Task Manager is a prototype web application developed for the IMS566 individual assignment.
+        It simulates an internal admin portal used to monitor and manage employee tasks.
+      </p>
+    </header>
+
+    <!-- Admin overview card with clock -->
+    <section class="bg-white/95 p-4 rounded-xl shadow mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-4 border-sky-600">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center">
+          <img
+            src="ERN_Icon_Menu_Character_Wylder.webp"
+            alt="Company logo"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div>
+          <p class="font-semibold text-slate-800">Admin User</p>
+          <p class="text-sm text-gray-600">System administrator.</p>
+        </div>
+      </div>
+      <div class="text-left sm:text-right">
+        <p class="text-xs text-gray-500 uppercase tracking-wide">Current system time</p>
+        <p id="clock" class="font-mono text-sm text-slate-800 mt-1"></p>
+      </div>
+    </section>
+
+    <!-- How to use the system -->
+    <section class="bg-white/95 p-6 rounded-xl shadow mb-6 border-4 border-sky-600">
+      <h3 class="text-xl font-semibold text-slate-800 mb-3">How to Use This System</h3>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>
+          <span class="font-semibold">Open the Login Page:</span>
+          Enter the provided credentials
+          <span class="font-mono bg-gray-100 px-1 rounded">admin</span> /
+          <span class="font-mono bg-gray-100 px-1 rounded">1234</span> and click <span class="font-semibold">Login</span>.
+        </li>
+        <li>
+          <span class="font-semibold">View the Dashboard:</span>
+          After logging in, the Dashboard page will display total tasks, completed tasks, pending tasks, a quick task list
+          and a chart summarising the overall distribution.
+        </li>
+        <li>
+          <span class="font-semibold">Check Pending Tasks:</span>
+          Use the navigation bar to open the <span class="font-semibold">Pending Tasks</span> page and review tasks that are still open.
+        </li>
+        <li>
+          <span class="font-semibold">Review Completed Tasks:</span>
+          Open the <span class="font-semibold">Completed Tasks</span> page to see tasks that have already been finished.
+        </li>
+        <li>
+          <span class="font-semibold">Logout:</span>
+          Use the <span class="font-semibold">Logout</span> button in the navigation bar to return to the login screen.
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="bg-violet-500 text-white text-center py-4 mt-8">
+    <p class="text-sm font-semibold">
+      IMS566 – Web Tech | Employee Task Manager
+    </p>
+    <p class="text-xs">
+      Developed by NAIMUS Corporation, 2025.
+    </p>
+  </footer>
+
+  <script>
+    // Simple live clock for admin overview
+    function updateClock() {
+      const clockEl = document.getElementById('clock');
+      if (!clockEl) return;
+
+      const now = new Date();
+      const options = {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      };
+      clockEl.textContent = now.toLocaleString('en-MY', options);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateClock();
+      setInterval(updateClock, 1000);
+    });
+  </script>
+</body>
+</html>
