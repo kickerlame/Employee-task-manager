@@ -1,20 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Employee Task Manager prototype for IMS566 individual assignment. Includes login, dashboard, pending and completed tasks with data visualisation.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pending Tasks - Employee Task Manager</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body
-  class="min-h-screen flex flex-col bg-cover bg-center bg-fixed overflow-x-hidden"
-  style="background-image: url('nightreign-banner-and-wallpaper-v0-w4732smaodge1.png');"
->
-    <!-- Top brand bar + navigation -->
+
+<body class="min-h-screen bg-cover bg-center bg-fixed overflow-x-hidden"
+style="background-image:url('nightreign-banner-and-wallpaper-v0-w4732smaodge1.png')">
+
+<!-- NAVBAR -->
   <nav class="bg-slate-950/90 text-white shadow">
-    <!-- Brand bar -->
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between border-b border-slate-800/80">
       <div class="flex items-center space-x-3">
         <!-- Logo circle with image -->
         <div class="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center">
@@ -24,7 +22,6 @@
             class="h-full w-full object-cover"
           />
         </div>
-        <!-- Text next to logo -->
         <div>
           <p class="text-sm font-semibold leading-tight">NAIMUS Corporation</p>
           <p class="text-xs text-slate-200">Employee Task Management Portal</p>
@@ -37,15 +34,15 @@
       </p>
     </div>
 
-
     <!-- Main navigation links -->
-    <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
       <div class="flex flex-wrap items-center gap-4 text-sm">
-        <a href="home.html" class="hover:text-violet-300">Home</a>
-        <a href="dashboard.html" class="hover:text-violet-300">Dashboard</a>
-        <a href="pending.html" class="text-violet-400 font-semibold border-b-2 border-violet-400 pb-1">Pending Tasks</a>
-        <a href="completed.html" class="hover:text-violet-300">Completed Tasks</a>
-      </div>
+    <a href="home.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profiles.html">Profiles</a>
+    <a href="pending.html" class="text-violet-400 font-semibold border-b-2 border-violet-400">Pending Tasks</a>
+    <a href="completed.html">Completed Tasks</a>
+  </div>
 
       <a
         href="login.html"
@@ -56,50 +53,246 @@
     </div>
   </nav>
 
-  <!-- Main content area -->
-  <main class="max-w-5xl mx-auto mt-8 px-4 flex-1">
-    <section class="bg-white p-6 rounded-xl shadow border-4 border-sky-600">
-      <h2 class="text-2xl font-bold text-slate-800 mb-4">Pending Employee Tasks</h2>
+
+<!-- MAIN -->
+  <main class="max-w-7xl mx-auto mt-8 px-6 flex-1">
+    <header class="mb-6">
+      <h2 class="text-3xl font-bold text-slate-100 drop-shadow flex justify-center">Pending Tasks</h2>
+    </header>
+
+  <section class="bg-white/95 rounded-xl shadow border-4 border-sky-600 p-6 w-full">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-xl font-semibold">List of Tasks</h3>
+      <input
+  id="tableSearch"
+  type="text"
+  placeholder="Search by name, department, status..."
+  class="border border-slate-300 rounded-lg px-3 py-1 text-sm w-72"
+/>
+    </div>
+
       <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
+        <table class="w-full text-left border-collapse text-sm">
           <thead>
-            <tr class="bg-blue-100">
-              <th class="p-2">Task</th>
-              <th class="p-2">Due</th>
-              <th class="p-2">Priority</th>
-              <th class="p-2">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-t">
+            <tr class="bg-slate-100">
+            <th class="p-2 text-left">Task</th>
+            <th class="p-2">Department</th>
+            <th class="p-2">Date</th>
+            <th class="p-2">Priority</th>
+            <th class="p-2">Status</th>
+          </tr>
+        </thead>
+          <tbody id="pendingTable">
+            <tr class="border-t hover:bg-slate-50">
               <td class="p-2">Complete Employee Onboarding</td>
+              <td class="p-2">Human Resources</td>
               <td class="p-2">2025-02-02</td>
               <td class="p-2">High</td>
-              <td class="p-2">Pending</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
             </tr>
-            <tr class="border-t bg-white">
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
               <td class="p-2">Organize Team Meeting</td>
+              <td class="p-2">Operations</td>
               <td class="p-2">2025-02-04</td>
               <td class="p-2">Low</td>
-              <td class="p-2">Pending</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
             </tr>
-            <tr class="border-t">
+            <tr class="border-t hover:bg-slate-50">
               <td class="p-2">Prepare Payroll Reports</td>
+              <td class="p-2">Finance</td>
               <td class="p-2">2025-02-05</td>
               <td class="p-2">Medium</td>
-              <td class="p-2">Pending</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
             </tr>
-            <tr class="border-t bg-white">
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
               <td class="p-2">Update Employee Records</td>
+              <td class="p-2">Human Resources</td>
               <td class="p-2">2025-02-06</td>
               <td class="p-2">Medium</td>
-              <td class="p-2">Pending</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
             </tr>
-            <tr class="border-t">
+            <tr class="border-t hover:bg-slate-50">
               <td class="p-2">Conduct Performance Reviews</td>
+              <td class="p-2">Human Resources</td>
               <td class="p-2">2025-02-07</td>
               <td class="p-2">High</td>
-              <td class="p-2">Pending</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Plan Training Workshop</td>
+              <td class="p-2">Human Resources</td>
+              <td class="p-2">2025-02-08</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Update Employee Handbook</td>
+              <td class="p-2">Human Resources</td>
+              <td class="p-2">2025-02-09</td>
+              <td class="p-2">Low</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Prepare Audit Documents</td>
+              <td class="p-2">Finance</td>
+              <td class="p-2">2025-02-10</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Schedule IT Maintenance</td>
+              <td class="p-2">IT Services</td>
+              <td class="p-2">2025-02-11</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Prepare Monthly Report</td>
+              <td class="p-2">Finance</td>
+              <td class="p-2">2025-02-12</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Update Asset Inventory</td>
+              <td class="p-2">Operations</td>
+              <td class="p-2">2025-02-13</td>
+              <td class="p-2">Low</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Coordinate Vendor Meeting</td>
+              <td class="p-2">Operations</td>
+              <td class="p-2">2025-02-14</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Review Safety Procedures</td>
+              <td class="p-2">Operations</td>
+              <td class="p-2">2025-02-15</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Respond to Customer Feedback</td>
+              <td class="p-2">Projects</td>
+              <td class="p-2">2025-02-16</td>
+              <td class="p-2">Low</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Prepare Budget Forecast</td>
+              <td class="p-2">Finance</td>
+              <td class="p-2">2025-02-17</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Update IT Security Policy</td>
+              <td class="p-2">IT Services</td>
+              <td class="p-2">2025-02-18</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Review Annual Budget Allocation</td>
+              <td class="p-2">Finance</td>
+              <td class="p-2">2025-02-19</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Conduct Staff Satisfaction Survey</td>
+              <td class="p-2">Human Resources</td>
+              <td class="p-2">2025-02-20</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+
+              <td class="p-2">Prepare Project Timeline Report</td>
+              <td class="p-2">Projects</td>
+              <td class="p-2">2025-02-21</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Update Software Licences</td>
+              <td class="p-2">IT Services</td>
+              <td class="p-2">2025-02-22</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Organize Safety Training Session</td>
+              <td class="p-2">Operations</td>
+              <td class="p-2">2025-02-23</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Prepare Monthly HR Analytics</td>
+              <td class="p-2">Human Resources</td>
+              <td class="p-2">2025-02-24</td>
+              <td class="p-2">Low</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Review Vendor Contracts</td>
+              <td class="p-2">Operations</td>
+              <td class="p-2">2025-02-25</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Update Website Content</td>
+              <td class="p-2">IT Services</td>
+              <td class="p-2">2025-02-26</td>
+              <td class="p-2">Low</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Prepare Quarterly Performance Review</td>
+              <td class="p-2">Human Resources</td>
+              <td class="p-2">2025-02-27</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Audit Inventory Records</td>
+              <td class="p-2">Operations</td>
+              <td class="p-2">2025-02-28</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">Prepare Financial Forecast Q2</td>
+              <td class="p-2">Finance</td>
+              <td class="p-2">2025-03-01</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Update Employee Benefits Plan</td>
+              <td class="p-2">Human Resources</td>
+              <td class="p-2">2025-03-02</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t hover:bg-slate-50">
+              <td class="p-2">System Backup & Data Validation</td>
+              <td class="p-2">IT Services</td>
+              <td class="p-2">2025-03-03</td>
+              <td class="p-2">High</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
+            </tr>
+            <tr class="border-t bg-slate-50 hover:bg-slate-100">
+              <td class="p-2">Prepare Annual Operations Report</td>
+              <td class="p-2">Operations</td>
+              <td class="p-2">2025-03-04</td>
+              <td class="p-2">Medium</td>
+              <td class="p-2 text-amber-600 font-medium">Pending</td>
             </tr>
           </tbody>
         </table>
@@ -107,6 +300,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="bg-violet-500 text-white text-center py-4 mt-8">
     <p class="text-sm font-semibold">
       IMS566 – Web Tech | Employee Task Manager
@@ -115,5 +309,16 @@
       Developed by NAIMUS Corporation, 2025.
     </p>
   </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('tableSearch');
+  const rows = document.querySelectorAll('tbody tr');
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase();
+    rows.forEach(r => r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none');
+  });
+});
+</script>
 </body>
 </html>

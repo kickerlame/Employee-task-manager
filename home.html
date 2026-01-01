@@ -1,20 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Employee Task Manager prototype for IMS566 individual assignment. About page and instructions for using the portal.">
   <title>Home - Employee Task Manager</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body
-  class="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
+  class="min-h-screen flex flex-col bg-cover bg-center bg-fixed overflow-x-hidden"
   style="background-image: url('nightreign-banner-and-wallpaper-v0-w4732smaodge1.png');"
 >
-  <!-- Top brand bar + navigation -->
+<!-- NAVBAR -->
   <nav class="bg-slate-950/90 text-white shadow">
-    <!-- Brand bar -->
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between border-b border-slate-800/80">
       <div class="flex items-center space-x-3">
         <!-- Logo circle with image -->
         <div class="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center">
@@ -24,7 +22,6 @@
             class="h-full w-full object-cover"
           />
         </div>
-        <!-- Text next to logo -->
         <div>
           <p class="text-sm font-semibold leading-tight">NAIMUS Corporation</p>
           <p class="text-xs text-slate-200">Employee Task Management Portal</p>
@@ -38,10 +35,11 @@
     </div>
 
     <!-- Main navigation links -->
-    <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
       <div class="flex flex-wrap items-center gap-4 text-sm">
         <a href="home.html" class="text-violet-400 font-semibold border-b-2 border-violet-400 pb-1">Home</a>
         <a href="dashboard.html" class="hover:text-violet-300">Dashboard</a>
+        <a href="profiles.html" class="hover:text-violet-300">Profiles</a>
         <a href="pending.html" class="hover:text-violet-300">Pending Tasks</a>
         <a href="completed.html" class="hover:text-violet-300">Completed Tasks</a>
       </div>
@@ -55,69 +53,83 @@
     </div>
   </nav>
 
-  <!-- Main content area -->
-  <main class="max-w-5xl mx-auto mt-8 px-4 flex-1">
-    <!-- About header -->
+  <!-- MAIN -->
+  <main class="max-w-7xl mx-auto mt-8 px-6 flex-1">
     <header class="mb-6">
-      <h2 class="text-3xl font-bold text-slate-100 drop-shadow">About This Portal</h2>
-      <p class="text-gray-200 drop-shadow">
-        The Employee Task Manager is a prototype web application developed for the IMS566 individual assignment.
-        It simulates an internal admin portal used to monitor and manage employee tasks.
-      </p>
+      <h2 class="text-3xl font-bold text-slate-100 drop-shadow flex justify-center">Home</h2>
     </header>
 
-    <!-- Admin overview card with clock -->
-    <section class="bg-white/95 p-4 rounded-xl shadow mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-4 border-sky-600">
-      <div class="flex items-center gap-3">
-        <div class="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center">
-          <img
-            src="ERN_Icon_Menu_Character_Wylder.webp"
-            alt="Company logo"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <div>
-          <p class="font-semibold text-slate-800">Admin User</p>
-          <p class="text-sm text-gray-600">System administrator.</p>
-        </div>
-      </div>
-      <div class="text-left sm:text-right">
-        <p class="text-xs text-gray-500 uppercase tracking-wide">Current system time</p>
-        <p id="clock" class="font-mono text-sm text-slate-800 mt-1"></p>
-      </div>
+    <!-- System time card -->
+    <section class="bg-white/95 p-4 md:p-5 rounded-xl shadow mb-6 border-4 border-sky-600">
+      <p class="text-sm font-semibold text-slate-800">System Time</p>
+      <p id="clock" class="text-lg md:text-xl font-mono text-slate-900"></p>
     </section>
 
-    <!-- How to use the system -->
-    <section class="bg-white/95 p-6 rounded-xl shadow mb-6 border-4 border-sky-600">
-      <h3 class="text-xl font-semibold text-slate-800 mb-3">How to Use This System</h3>
-      <ol class="list-decimal list-inside space-y-2 text-gray-700">
-        <li>
-          <span class="font-semibold">Open the Login Page:</span>
-          Enter the provided credentials
-          <span class="font-mono bg-gray-100 px-1 rounded">admin</span> /
-          <span class="font-mono bg-gray-100 px-1 rounded">1234</span> and click <span class="font-semibold">Login</span>.
-        </li>
-        <li>
-          <span class="font-semibold">View the Dashboard:</span>
-          After logging in, the Dashboard page will display total tasks, completed tasks, pending tasks, a quick task list
-          and a chart summarising the overall distribution.
-        </li>
-        <li>
-          <span class="font-semibold">Check Pending Tasks:</span>
-          Use the navigation bar to open the <span class="font-semibold">Pending Tasks</span> page and review tasks that are still open.
-        </li>
-        <li>
-          <span class="font-semibold">Review Completed Tasks:</span>
-          Open the <span class="font-semibold">Completed Tasks</span> page to see tasks that have already been finished.
-        </li>
-        <li>
-          <span class="font-semibold">Logout:</span>
-          Use the <span class="font-semibold">Logout</span> button in the navigation bar to return to the login screen.
-        </li>
-      </ol>
+    <!-- Officer profile 1-->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <article class="bg-white/95 p-6 rounded-xl shadow border-4 border-sky-600 flex flex-col md:flex-row gap-4 items-start">
+        <div class="flex-shrink-0">
+          <div class="h-16 w-16 rounded-full overflow-hidden bg-slate-900 flex items-center justify-center">
+            <img
+              src="ERN_Icon_Menu_Character_Wylder.webp"
+              alt="Student avatar"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-slate-900">Naim Zulhaziq</h3>
+          <p class="text-sm text-gray-700 mb-3">Admin Manager</p>
+          <ul class="space-y-1 text-sm text-gray-800">
+            <li><span class="font-semibold">Staff ID:</span> 001</li>
+            <li><span class="font-semibold">Position:</span> Systems Administrator</li>
+            <li><span class="font-semibold">Department:</span> IT Services</li>
+            <li><span class="font-semibold">Email:</span> naim.zulhaziq@naimuscorp.com</li>
+
+          </ul>
+        </div>
+      </article>
+
+      <!-- Officer profile 2-->
+      <article class="bg-white/95 p-6 rounded-xl shadow border-4 border-sky-600 flex flex-col md:flex-row gap-4 items-start">
+        <div class="flex-shrink-0">
+          <div class="h-16 w-16 rounded-full overflow-hidden bg-slate-900 flex items-center justify-center">
+            <img
+              src="ERN_Icon_Menu_Character_Raider.webp"
+              alt="Student avatar"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-slate-900">Nabil Firdaus</h3>
+          <p class="text-sm text-gray-700 mb-3">Admin Assistant</p>
+        <ul class="space-y-1 text-sm text-gray-800">
+          <li><span class="font-semibold">Staff ID:</span> 002</li>
+          <li><span class="font-semibold">Position:</span> IT Support Officer</li>
+          <li><span class="font-semibold">Department:</span> IT Services</li>
+          <li><span class="font-semibold">Email:</span> nabil.aus@naimuscorp.com</li>
+
+        </ul>
+      </article>
+    </section>
+
+    <section class="bg-white/95 p-6 rounded-xl shadow mb-8 border-4 border-sky-600">
+      <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-3">System &amp; Admin Profile</h3>
+      <p class="text-sm text-gray-700 mb-3">
+        The Employee Task Manager is a web-based prototype developed by IT Department.
+        It is designed to resemble an internal admin portal used by a NAIMUS Corporation to monitor
+        employee tasks and productivity.
+      </p>
+      <ul class="space-y-1 text-sm text-gray-800">
+        <li><span class="font-semibold">System Name:</span> Employee Task Manager</li>
+        <li><span class="font-semibold">Organisation:</span> NAIMUS Corporation</li>
+        <li><span class="font-semibold">Main Role:</span> Admin user managing employee tasks</li>
+      </ul>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="bg-violet-500 text-white text-center py-4 mt-8">
     <p class="text-sm font-semibold">
       IMS566 – Web Tech | Employee Task Manager
@@ -128,11 +140,10 @@
   </footer>
 
   <script>
-    // Simple live clock for admin overview
+    // Simple live clock
     function updateClock() {
-      const clockEl = document.getElementById('clock');
-      if (!clockEl) return;
-
+      const el = document.getElementById('clock');
+      if (!el) return;
       const now = new Date();
       const options = {
         weekday: 'short',
@@ -143,9 +154,8 @@
         minute: '2-digit',
         second: '2-digit'
       };
-      clockEl.textContent = now.toLocaleString('en-MY', options);
+      el.textContent = now.toLocaleString('en-MY', options);
     }
-
     document.addEventListener('DOMContentLoaded', () => {
       updateClock();
       setInterval(updateClock, 1000);

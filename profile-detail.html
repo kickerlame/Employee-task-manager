@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employee Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-cover bg-center bg-fixed overflow-x-hidden"
+style="background-image:url('nightreign-banner-and-wallpaper-v0-w4732smaodge1.png')">
+
+<!-- NAVBAR -->
+<nav class="bg-slate-950/90 text-white shadow">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between border-b border-slate-800/80">
+    <div class="flex items-center space-x-3">
+      <!-- Logo circle with image -->
+      <div class="h-9 w-9 rounded-full overflow-hidden">
+        <img
+          src="fe9e9fb39106c162aa27251d737eedd2.ico"
+          alt="Company logo"
+          class="h-full w-full object-cover"
+        />
+      </div>
+      <div>
+        <p class="font-semibold leading-tight">NAIMUS Corporation</p>
+        <p class="text-xs text-slate-200">Employee Task Management Portal</p>
+      </div>
+    </div>
+
+    <!-- Back to Porfiles -->
+    <a href="profiles.html"
+       class="text-sm text-violet-300 hover:underline whitespace-nowrap">
+      ← Back to Profiles
+    </a>
+
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="max-w-4xl mx-auto px-6 mt-10 pb-28">
+
+  <section class="bg-white/95 rounded-xl shadow border-4 border-sky-600 overflow-hidden">
+    <div class="bg-slate-950/90 p-6 flex items-center gap-4">
+      <div class="h-20 w-20 rounded-full bg-white/20 flex items-center justify-center">
+        <svg class="h-10 w-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/>
+        </svg>
+      </div>
+
+      <div>
+        <h2 id="empName" class="text-2xl font-bold text-white">
+          Employee Name
+        </h2>
+        <p id="empRole" class="text-sm text-slate-100">
+          Position
+        </p>
+        <span id="empStatus"
+              class="inline-block mt-1 px-3 py-1 text-xs rounded-full bg-green-500 text-white">
+          Active
+        </span>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="p-6 space-y-6">
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="bg-slate-50 p-4 rounded">
+          <p class="text-xs text-slate-500">Department</p>
+          <p id="empDept" class="font-semibold">-</p>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded">
+          <p class="text-xs text-slate-500">Email</p>
+          <p id="empEmail" class="font-semibold">-</p>
+        </div>
+      </div>
+
+      <!-- ACTION BUTTONS FAKE-->
+      <div class="flex gap-3 pt-4 border-t">
+        <button
+          class="bg-sky-600 text-white px-4 py-2 rounded text-sm font-semibold opacity-70 cursor-not-allowed">
+          Edit Profile
+        </button>
+
+        <button
+          class="bg-red-500 text-white px-4 py-2 rounded text-sm font-semibold opacity-70 cursor-not-allowed">
+          Deactivate
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="absolute bottom-0 w-full bg-violet-500 text-white text-center py-4">
+  <p class="text-sm font-semibold">
+    IMS566 – Web Tech | Employee Task Manager
+  </p>
+  <p class="text-xs">
+    Developed by NAIMUS Corporation, 2025.
+  </p>
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  document.getElementById('empName').textContent =
+    params.get('name') || 'Employee Name';
+
+  document.getElementById('empRole').textContent =
+    params.get('role') || '-';
+
+  document.getElementById('empDept').textContent =
+    params.get('dept') || '-';
+
+  document.getElementById('empEmail').textContent =
+    params.get('email') || '-';
+
+  const status = params.get('status') || 'Active';
+  const statusEl = document.getElementById('empStatus');
+  statusEl.textContent = status;
+
+  if (status !== 'Active') {
+    statusEl.classList.replace('bg-green-500', 'bg-yellow-500');
+  }
+</script>
+
+</body>
+</html>

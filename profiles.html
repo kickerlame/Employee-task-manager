@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employee Profiles</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-cover bg-center bg-fixed overflow-x-hidden"
+style="background-image:url('nightreign-banner-and-wallpaper-v0-w4732smaodge1.png')">
+
+<!-- NAVBAR -->
+  <nav class="bg-slate-950/90 text-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between border-b border-slate-800/80">
+      <div class="flex items-center space-x-3">
+        <!-- Logo circle with image -->
+        <div class="h-9 w-9 rounded-full overflow-hidden flex items-center justify-center">
+          <img
+            src="fe9e9fb39106c162aa27251d737eedd2.ico"
+            alt="Company logo"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div>
+          <p class="text-sm font-semibold leading-tight">NAIMUS Corporation</p>
+          <p class="text-xs text-slate-200">Employee Task Management Portal</p>
+        </div>
+      </div>
+
+      <!-- Logged in user info -->
+      <p class="hidden sm:block text-xs text-slate-200">
+        Logged in as <span class="font-semibold">Admin</span>
+      </p>
+    </div>
+
+    <!-- Main navigation links -->
+    <div class="max-w-7xl mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
+      <div class="flex flex-wrap items-center gap-4 text-sm">
+    <a href="home.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profiles.html" class="text-violet-400 font-semibold border-b-2 border-violet-400">Profiles</a>
+    <a href="pending.html">Pending Tasks</a>
+    <a href="completed.html">Completed Tasks</a>
+  </div>
+      <a
+        href="login.html"
+        class="mt-2 sm:mt-0 text-xs bg-violet-500 text-slate-900 px-3 py-1 rounded font-semibold hover:bg-violet-400"
+      >
+        Logout
+      </a>
+    </div>
+  </nav>
+
+<!-- MAIN -->
+<main class="max-w-7xl mx-auto px-6 mt-8">
+      <header class="mb-6">
+      <h2 class="text-3xl font-bold text-slate-100 drop-shadow flex justify-center">Employee Profiles</h2>
+    </header>
+
+  <section class="bg-white/95 rounded-xl shadow border-4 border-sky-600 p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-xl font-semibold">List of Employees</h3>
+      <input id="tableSearch"
+        placeholder="Search by name, department, status..."
+        class="border border-slate-300 rounded px-3 py-1 text-sm w-72">
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead class="bg-slate-100">
+          <tr>
+            <th class="p-2 text-left">Name</th>
+            <th class="p-2">Position</th>
+            <th class="p-2">Department</th>
+            <th class="p-2">Email</th>
+            <th class="p-2">Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+<!-- Human Resources -->
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Aiden%20Rahman&role=HR%20Administrator&dept=Human%20Resources&email=aiden.rahman@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Aiden Rahman</a>
+  </td>
+  <td class="p-2">HR Administrator</td>
+  <td class="p-2">Human Resources</td>
+  <td class="p-2 text-xs">aiden.rahman@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Sara%20Malik&role=HR%20Officer&dept=Human%20Resources&email=sara.malik@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Sara Malik</a>
+  </td>
+  <td class="p-2">HR Officer</td>
+  <td class="p-2">Human Resources</td>
+  <td class="p-2 text-xs">sara.malik@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Lina%20Harun&role=Recruitment%20Specialist&dept=Human%20Resources&email=lina.harun@naimuscorp.com&status=On%20Leave"
+       class="text-sky-600 hover:underline">Lina Harun</a>
+  </td>
+  <td class="p-2">Recruitment Specialist</td>
+  <td class="p-2">Human Resources</td>
+  <td class="p-2 text-xs">lina.harun@naimuscorp.com</td>
+  <td class="p-2 text-yellow-600 font-medium">On Leave</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Jamal%20Idris&role=Training%20Coordinator&dept=Human%20Resources&email=jamal.idris@naimuscorp.com&status=Offline"
+       class="text-sky-600 hover:underline">Jamal Idris</a>
+  </td>
+  <td class="p-2">Training Coordinator</td>
+  <td class="p-2">Human Resources</td>
+  <td class="p-2 text-xs">jamal.idris@naimuscorp.com</td>
+  <td class="p-2 text-red-600 font-medium">Offline</td>
+</tr>
+
+<!-- Finance -->
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Bella%20Chan&role=Finance%20Executive&dept=Finance&email=bella.chan@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Bella Chan</a>
+  </td>
+  <td class="p-2">Finance Executive</td>
+  <td class="p-2">Finance</td>
+  <td class="p-2 text-xs">bella.chan@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Imran%20Yusuf&role=Accountant&dept=Finance&email=imran.yusuf@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Imran Yusuf</a>
+  </td>
+  <td class="p-2">Accountant</td>
+  <td class="p-2">Finance</td>
+  <td class="p-2 text-xs">imran.yusuf@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Nurul%20Aida&role=Payroll%20Officer&dept=Finance&email=nurul.aida@naimuscorp.com&status=On%20Leave"
+       class="text-sky-600 hover:underline">Nurul Aida</a>
+  </td>
+  <td class="p-2">Payroll Officer</td>
+  <td class="p-2">Finance</td>
+  <td class="p-2 text-xs">nurul.aida@naimuscorp.com</td>
+  <td class="p-2 text-yellow-600 font-medium">On Leave</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Kevin%20Tan&role=Financial%20Analyst&dept=Finance&email=kevin.tan@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Kevin Tan</a>
+  </td>
+  <td class="p-2">Financial Analyst</td>
+  <td class="p-2">Finance</td>
+  <td class="p-2 text-xs">kevin.tan@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Siti%20Zain&role=Budget%20Officer&dept=Finance&email=siti.zain@naimuscorp.com&status=Offline"
+       class="text-sky-600 hover:underline">Siti Zain</a>
+  </td>
+  <td class="p-2">Budget Officer</td>
+  <td class="p-2">Finance</td>
+  <td class="p-2 text-xs">siti.zain@naimuscorp.com</td>
+  <td class="p-2 text-red-600 font-medium">Offline</td>
+</tr>
+
+<!-- IT Services -->
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Nabil%20Aus&role=IT%20Support%20Officer&dept=IT%20Services&email=nabil.aus@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Nabil Aus</a>
+  </td>
+  <td class="p-2">IT Support Officer</td>
+  <td class="p-2">IT Services</td>
+  <td class="p-2 text-xs">nabil.aus@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Naim%20Zulhaziq&role=Systems%20Administrator&dept=IT%20Services&email=naim.zulhaziq@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Naim Zulhaziq</a>
+  </td>
+  <td class="p-2">Systems Administrator</td>
+  <td class="p-2">IT Services</td>
+  <td class="p-2 text-xs">naim.zulhaziq@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Jason%20Ong&role=Network%20Engineer&dept=IT%20Services&email=jason.ong@naimuscorp.com&status=On%20Leave"
+       class="text-sky-600 hover:underline">Jason Ong</a>
+  </td>
+  <td class="p-2">Network Engineer</td>
+  <td class="p-2">IT Services</td>
+  <td class="p-2 text-xs">jason.ong@naimuscorp.com</td>
+  <td class="p-2 text-yellow-600 font-medium">On Leave</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Mei%20Ling&role=Support%20Technician&dept=IT%20Services&email=mei.ling@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Mei Ling</a>
+  </td>
+  <td class="p-2">Support Technician</td>
+  <td class="p-2">IT Services</td>
+  <td class="p-2 text-xs">mei.ling@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Haziq%20Shah&role=Helpdesk%20Analyst&dept=IT%20Services&email=haziq.shah@naimuscorp.com&status=Offline"
+       class="text-sky-600 hover:underline">Haziq Shah</a>
+  </td>
+  <td class="p-2">Helpdesk Analyst</td>
+  <td class="p-2">IT Services</td>
+  <td class="p-2 text-xs">haziq.shah@naimuscorp.com</td>
+  <td class="p-2 text-red-600 font-medium">Offline</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Priya%20Rao&role=Application%20Support&dept=IT%20Services&email=priya.rao@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Priya Rao</a>
+  </td>
+  <td class="p-2">Application Support</td>
+  <td class="p-2">IT Services</td>
+  <td class="p-2 text-xs">priya.rao@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Amirul%20Han&role=Junior%20Developer&dept=IT%20Services&email=amirul.han@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Amirul Han</a>
+  </td>
+  <td class="p-2">Junior Developer</td>
+  <td class="p-2">IT Services</td>
+  <td class="p-2 text-xs">amirul.han@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<!-- Operations -->
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Farah%20Zulkifli&role=Operations%20Coordinator&dept=Operations&email=farah.z@naimuscorp.com&status=On%20Leave"
+       class="text-sky-600 hover:underline">Farah Zulkifli</a>
+  </td>
+  <td class="p-2">Operations Coordinator</td>
+  <td class="p-2">Operations</td>
+  <td class="p-2 text-xs">farah.z@naimuscorp.com</td>
+  <td class="p-2 text-yellow-600 font-medium">On Leave</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Nadia%20Roslan&role=Operations%20Analyst&dept=Operations&email=nadia.roslan@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Nadia Roslan</a>
+  </td>
+  <td class="p-2">Operations Analyst</td>
+  <td class="p-2">Operations</td>
+  <td class="p-2 text-xs">nadia.roslan@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Khairul%20Nizam&role=Logistics%20Supervisor&dept=Operations&email=khairul.nizam@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Khairul Nizam</a>
+  </td>
+  <td class="p-2">Logistics Supervisor</td>
+  <td class="p-2">Operations</td>
+  <td class="p-2 text-xs">khairul.nizam@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Roshan%20Singh&role=Facilities%20Officer&dept=Operations&email=roshan.singh@naimuscorp.com&status=Offline"
+       class="text-sky-600 hover:underline">Roshan Singh</a>
+  </td>
+  <td class="p-2">Facilities Officer</td>
+  <td class="p-2">Operations</td>
+  <td class="p-2 text-xs">roshan.singh@naimuscorp.com</td>
+  <td class="p-2 text-red-600 font-medium">Offline</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Laila%20Omar&role=Operations%20Assistant&dept=Operations&email=laila.omar@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Laila Omar</a>
+  </td>
+  <td class="p-2">Operations Assistant</td>
+  <td class="p-2">Operations</td>
+  <td class="p-2 text-xs">laila.omar@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<!-- Projects -->
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Hafiz%20Ibrahim&role=Project%20Manager&dept=Projects&email=hafiz.ibrahim@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Hafiz Ibrahim</a>
+  </td>
+  <td class="p-2">Project Manager</td>
+  <td class="p-2">Projects</td>
+  <td class="p-2 text-xs">hafiz.ibrahim@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Rina%20Azmi&role=Project%20Coordinator&dept=Projects&email=rina.azmi@naimuscorp.com&status=On%20Leave"
+       class="text-sky-600 hover:underline">Rina Azmi</a>
+  </td>
+  <td class="p-2">Project Coordinator</td>
+  <td class="p-2">Projects</td>
+  <td class="p-2 text-xs">rina.azmi@naimuscorp.com</td>
+  <td class="p-2 text-yellow-600 font-medium">On Leave</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Yusuf%20Khalid&role=Business%20Analyst&dept=Projects&email=yusuf.khalid@naimuscorp.com&status=Active"
+       class="text-sky-600 hover:underline">Yusuf Khalid</a>
+  </td>
+  <td class="p-2">Business Analyst</td>
+  <td class="p-2">Projects</td>
+  <td class="p-2 text-xs">yusuf.khalid@naimuscorp.com</td>
+  <td class="p-2 text-green-600 font-medium">Active</td>
+</tr>
+
+<tr class="border-t hover:bg-slate-50">
+  <td class="p-2 font-semibold">
+    <a href="profile-detail.html?name=Arman%20Lee&role=Project%20Executive&dept=Projects&email=arman.lee@naimuscorp.com&status=Offline"
+       class="text-sky-600 hover:underline">Arman Lee</a>
+  </td>
+  <td class="p-2">Project Executive</td>
+  <td class="p-2">Projects</td>
+  <td class="p-2 text-xs">arman.lee@naimuscorp.com</td>
+  <td class="p-2 text-red-600 font-medium">Offline</td>
+</tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+  <footer class="bg-violet-500 text-white text-center py-4 mt-8">
+    <p class="text-sm font-semibold">
+      IMS566 – Web Tech | Employee Task Manager
+    </p>
+    <p class="text-xs">
+      Developed by NAIMUS Corporation, 2025.
+    </p>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('tableSearch');
+  const rows = document.querySelectorAll('tbody tr');
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase();
+    rows.forEach(r => r.style.display =
+      r.textContent.toLowerCase().includes(q) ? '' : 'none');
+  });
+});
+</script>
+
+</body>
+</html>
