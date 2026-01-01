@@ -1,4 +1,5 @@
 Employee Task Manager – NAIMUS Corporation
+
 Employee Task Manager is a comprehensive internal admin portal prototype developed for the IMS566 (Advanced Web Design, Development, and Content Management) individual project. The application is designed to simulate a real-world environment where administrators can monitor employee performance, manage task distributions, and maintain corporate profiles.
 
 Features
